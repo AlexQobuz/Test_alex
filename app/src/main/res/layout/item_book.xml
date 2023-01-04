@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="180dp"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="8dp"
+    android:padding="16dp"
+    app:cardBackgroundColor="@color/black"
+    android:layout_margin="4dp"
+    app:cardElevation="4dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_book"
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/un_appart_de_reve" />
+
+        <TextView
+            android:id="@+id/books_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/image_book"
+            android:text="Titre du livre"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/books_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/books_title"
+            android:layout_toEndOf="@+id/image_book"
+            android:text="Author :"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/books_title"
+            android:layout_toEndOf="@+id/books_author"
+            android:text="Roxanne Dambre"
+            android:textColor="@color/white"
+            android:layout_marginStart="4dp"
+            />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/image_book"
+            android:layout_below="@id/books_author"
+            android:secondaryProgressTint="@color/white"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:rating="3"
+            />
+
+        <TextView
+            android:id="@+id/book_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:layout_toEndOf="@id/image_book"
+            android:text="Description du livre ... "
+            android:maxLines="4"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summary"
+            />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
