@@ -3,12 +3,14 @@ package com.example.test
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class BooksAdapter(var items: List<Book>) : RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
+class BooksAdapter(var items: List<Book>) : RecyclerView.Adapter<BooksAdapter.BooksViewHolder>(), Filterable {
 
     class BooksViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 
@@ -42,10 +44,46 @@ class BooksAdapter(var items: List<Book>) : RecyclerView.Adapter<BooksAdapter.Bo
     }
 
     override fun onBindViewHolder(holder: BooksViewHolder, position: Int) {
-        val book = items[position]
+        val book = bookFilteredList[position]
         holder.bind(book)
     }
 
     override fun getItemCount() = items.size
+
+    var bookFilteredList: List<Book> = ArrayList()
+
+    init {
+        bookFilteredList = items
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                var charSearch = constraint.toString()
+                if (charSearch.isEmpty()){
+
+                } else {
+                    var resultList = ArrayList<Book>()
+                    for (book in items) {
+                        if (book.title.lowercase().contains(charSearch.lowercase())){
+                            resultList.add(book)
+                        }
+                    }
+                    bookFilteredList = resultList
+                }
+
+                val filterResults = FilterResults()
+                filterResults.values = bookFilteredList
+                return filterResults
+
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                bookFilteredList = results?.values as ArrayList<Book>
+                notifyDataSetChanged()
+            }
+        }
+    }
 
 }
