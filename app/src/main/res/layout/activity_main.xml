@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:paddingVertical="6dp"
@@ -19,30 +18,32 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="6dp"
             android:background="@drawable/bg_search"
             android:layout_marginRight="10dp"
             >
-            
+
             <EditText
                 android:id="@+id/edit_search"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="#252525"
                 android:text="Search book..."
+                android:textColor="@color/white"
                 android:paddingLeft="10dp"
                 />
 
             <ImageView
                 android:id="@+id/image_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
                 android:src="@drawable/bg_search"
+                android:backgroundTint="@color/white"
                 app:tint="#252525"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
                 />
 
@@ -53,15 +54,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewsBooks"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        tools:itemCount="6"
+        tools:itemCount="8"
         tools:listitem="@layout/item_book" />
 
 
